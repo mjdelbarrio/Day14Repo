@@ -1,11 +1,13 @@
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
 import java.sql.SQLOutput;
 
+import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class steps {
@@ -14,6 +16,7 @@ public class steps {
 
     @When("I check the details of student {int}")
     public void i_check_the_details_of_student(Integer studentID) {
+        given().contentType(ContentType.JSON);
         RestAssured.baseURI = "https://it-foundations.app.ap.assurity.cloud/";
         response = RestAssured.get("people/" + studentID);
         //System.out.println(studentID);
