@@ -30,7 +30,7 @@ public class steps {
         assertEquals("Jane Jones", fullName);
 
 
-    }1
+    }
     @Then("they have a {string} from {string}")
     public void they_have_a_from(String degree, String university ) {
         String deg = (String) response.jsonPath().getJsonObject("degree");
